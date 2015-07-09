@@ -1,0 +1,43 @@
+﻿@model List<WebApplication1.Models.Letra>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Letras para o Show</h1>
+    <p class="lead">App em ASP.NET para répertórios de shows</p>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            @foreach (var item in Model)
+            {
+                <div class="panel panel-default">
+
+                    <div class="panel-heading" role="tab" id="cabecalho_@item.Id">
+                        @*título*@
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#@item.Id" aria-expanded="false" aria-controls="@item.Id">
+                                @item.Banda - @item.Titulo
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="@item.Id" class="panel-collapse collapse" role="tabpanel" aria-labelledby="cabecalho_@item.Id">
+                        @*conteúdo*@
+                        <div class="panel-body">
+                            <div class="col-sm-12" style="white-space: pre-line">@item.Conteudo</div>
+                            <div class="col-sm-12">
+                                @Html.ActionLink("Editar", "Edit", new { Id = item.Id })
+                                @Html.ActionLink("Excluir", "Delete", new { Id = item.Id })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>

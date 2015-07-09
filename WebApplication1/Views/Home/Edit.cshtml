@@ -1,0 +1,50 @@
+﻿@model WebApplication1.Models.Letra
+@{
+    ViewBag.Title = "Letra";
+}
+
+<br />
+<form class="form-horizontal" method="post" action="@Url.Action("Edit")">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Letra</legend>
+        <input type="hidden" name="Id" value="@Model.Id" />
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-sm-4 control-label" for="Banda">Banda</label>
+            <div class="col-sm-6">
+                <input id="Banda" name="Banda" type="text" placeholder="" class="form-control input-md" required="" value="@Model.Banda">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-sm-4 control-label" for="Titulo">Título</label>
+            <div class="col-sm-6">
+                <input id="Titulo" name="Titulo" type="text" placeholder="" class="form-control input-md" required="" value="@Model.Titulo">
+
+            </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="form-group">
+            <label class="col-sm-4 control-label" for="Conteudo">Letra</label>
+            <div class="col-sm-4">
+                <textarea required="" class="form-control" id="Conteudo" name="Conteudo" rows="30" >@Model.Conteudo </textarea>
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-sm-4 control-label" for=""></label>
+            <div class="col-sm-4">
+                <input type="submit" class="btn btn-primary" value="Salvar">
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+
